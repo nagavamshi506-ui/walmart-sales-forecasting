@@ -18,8 +18,9 @@ def load_data():
 
 @st.cache_resource
 def load_model():
-    model = XGBRegressor()
-    model.load_model('xgb_walmart_model.json')
+    import pickle
+    with open('model.pkl', 'rb') as f:
+        model = pickle.load(f)
     return model
 
 try:
